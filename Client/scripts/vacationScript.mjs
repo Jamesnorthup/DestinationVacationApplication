@@ -10,7 +10,7 @@ document.getElementById("submitButton").onclick = function (event) {
 }
 
 getWeatherFromLatLong();
-LoadCards()
+ LoadCards()
 
 
 

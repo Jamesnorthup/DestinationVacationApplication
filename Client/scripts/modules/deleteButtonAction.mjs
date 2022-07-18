@@ -7,7 +7,5 @@ export default function deleteThisCard(imageID) {
             id: imageID
         })
     })
-        .then(res => {
-            if (res.ok) return res.json()
-        })
+     
 }

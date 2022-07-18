@@ -8,7 +8,7 @@ export default function  editThisCard(cardHolder) {
     var updateName = window.prompt("Enter new name");
     var updateLocation = window.prompt("Enter new location");
     var updateDescription = window.prompt("Enter new Description");
-    var updatePhoto = PhotoRequest(updateDescription, updateLocation)
+    var updatePhoto = "photoURL" //PhotoRequest(updateDescription, updateLocation)
 
 
     fetch("http://localhost:3000/", {
