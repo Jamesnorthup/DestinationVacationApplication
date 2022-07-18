@@ -1,22 +1,4 @@
-// //Back end web application framework for Node.js
-// const express = require('express')
-// const app = express()
-// const bodyParser = require('body-parser')
-// // app.use(bodyParser.json())
-// const cors = require("cors");
-// app.use(cors());
-// // var bodyParser = require('body-parser');
-// // app.use(bodyParser.json())
 
-
-
-
-// app.use(bodyParser.urlencoded({ extended: false }));
-
-// // Acquire Path Connection to MongoDB
-// var VacationDB = require('./connection.js');
-// const ObjectId = require('mongodb').ObjectId;
-// //CRUD Routes
 
 //Back end web application framework for Node.js
 const express = require('express')

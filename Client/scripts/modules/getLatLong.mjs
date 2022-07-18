@@ -7,14 +7,11 @@ export default async function getWeatherFromLatLong() {
     // Openweather API KEY
     var keyOpenWeather = "cfaed3d089ed42d06e536550168f54cd";
 
-
-
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             lat = position.coords.latitude;
             lon = position.coords.longitude;
             fetchWeather(lat, lon);
-
         });
     } else {
         alert("Sorry, your browser does not support HTML5 geolocation.");
@@ -36,23 +33,18 @@ export default async function getWeatherFromLatLong() {
                 // Seattle
                 const name_var = data.name;
 
-
                 // Gets current date and time
                 // current =  new Date();
 
-                //Temperature
-                const TempC = main_var.temp;
                 const TempF = main_var.temp / 0.5556 + 32;
-
-                //WindSpeed
-                const speedMetric = parseInt(wind_var.speed) * 3.6;
                 const speedMPH = parseInt(wind_var.speed) * 2.237;
-
                 const CityName = "City of " + name_var + " Weather Summary"
                 const Description = "Decription: " + weather_var[0].description
                 const Temp = "Temperature: " + Math.round(parseInt(TempF)) + " F"
                 const windspeed = "WindSpeed: " + Math.round(parseInt(speedMPH)) + " MPH"
+
                 putWeather(CityName, Description, Temp, windspeed)
+
                 $("#CityName").text(CityName);
                 $("#Description").text(Description);
                 $("#Temp").text(Temp);
@@ -78,7 +70,5 @@ export default async function getWeatherFromLatLong() {
 
             if (res.ok) return res.json()
         })
-
     }
-
 }

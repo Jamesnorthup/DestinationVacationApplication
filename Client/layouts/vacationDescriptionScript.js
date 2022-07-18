@@ -20,9 +20,6 @@ let windspeedVar
 
 
     FetchCurrentWeather()
-   
-        // .then(PhotoRequest(destination, location))
-        // .then(FetchCurrentWeather(destination, location))
 
 
 

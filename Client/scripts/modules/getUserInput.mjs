@@ -25,6 +25,9 @@ async function postVacationCollection(formInput) {
             photo: formInput[2],
             description: formInput[3]
         })
+    }).then(res => {
+
+        if (res.ok) return res.json()
     })
 
 }

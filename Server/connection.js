@@ -5,7 +5,8 @@ let _db = null;
 module.exports = {
 
   connectToServer: function (callback) {
-    MongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
+    MongoClient.connect(url, { useUnifiedTopology: true,
+      useNewUrlParser: true }, function (err, client) {
       _db = client.db('VacationDB');
       return callback(err);
     });

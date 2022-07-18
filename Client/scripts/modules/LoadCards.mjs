@@ -1,24 +1,36 @@
-import handleSubmit from "./handleFormSubmit.mjs";
-import getWeatherFromLatLong from "./getLatLong.mjs";
 
 
-export default function createCards() {
-  getWeatherFromLatLong();
+import generateCard from "./generateCard.mjs";
 
-  window.onload = async () => {
-    fetch("http://localhost:3000/")
-      .then((res) => res.json())
-      .then((data) => {
-        for (let dest of data.results) {
+import PhotoRequest from "./UnsplashPhotoRequest.mjs";
 
-          var imageID = dest._id
-          var name = dest.name
-          var location = dest.location
-          var photo = dest.photo
+export default async function LoadCards() {
+  const removeAll = document.getElementById("destinations_container")
+  removeAllChildNodes(removeAll);
+  
 
-          var description = dest.description
-          handleSubmit(name, location, photo, description, imageID)
-        }
-      })
+  fetch("http://localhost:3000/")
+    .then((res) => res.json())
+    .then((data) => {
+      for (let dest of data.results) {
+
+        const imageID = dest._id
+        const name = dest.name
+        const location = dest.location
+        const photo = dest.photo
+        const description = dest.description
+
+        PhotoRequest(location, name).then(imageURL =>
+          generateCard(name, location, imageURL, description, imageID)).then(
+        )
+      }
+    })
+    return "Cards Loading"
+}
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
   }
 }
+

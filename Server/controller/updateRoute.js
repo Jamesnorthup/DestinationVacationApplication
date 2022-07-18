@@ -35,7 +35,7 @@ module.exports.Destination = function (req, res) {
 
 module.exports.Weather = function (req, res) {
 
-    const destinationCollection = VacationDB.getDb().collection('Current_Weather ')
+    const destinationCollection = VacationDB.getDb().collection('Current_Weather')
     destinationCollection.findOneAndUpdate(
         { _id: "CURRENT_WEATHER" }, {
         $set: {
