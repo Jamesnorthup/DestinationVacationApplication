@@ -4,25 +4,28 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 app.use(express.json());
-
-
-
-
-
-app.use(bodyParser.json())
-const VacationDB = require('../connection.js');
 const ObjectId = require('mongodb').ObjectId;
+
+
+
+
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.json())
+const VacationDB = require('../connection.js');
+
 module.exports.Destination = function (req, res) {
 
     const destinationCollection = VacationDB.getDb().collection('Destinations')
-
     destinationCollection.findOneAndUpdate(
+      //  { _id: ObjectId(req.body._id) }, {
+
         { _id: ObjectId(req.body.id) }, {
         $set: {
             name: req.body.name,
             location: req.body.location,
             photo: req.body.photo,
             description: req.body.description
+     
         }
     },
         { upsert: true }
